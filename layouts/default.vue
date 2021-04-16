@@ -1,26 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-
-      <v-toolbar-title v-text="title" />
-
-    </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-main>
-  
   </v-app>
 </template>
 
@@ -51,3 +35,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+* {
+    background-color: rgb(239,239,239);
+}
+</style>

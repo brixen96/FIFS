@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "OpenSans";
+    src: local("OpenSans"),
+     url(~assets/OpenSans/OpenSans-Regular.ttf) format("truetype");
+}
+
+* {
+    font-family: "OpenSans";
+}
+
+a { 
+    text-decoration: none;
+}

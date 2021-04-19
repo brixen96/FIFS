@@ -6,11 +6,23 @@
                 <span >{{Cat}}</span>
             </v-expansion-panel-header>
                 <v-expansion-panel-content>
-                    <v-row v-for="item in Videos" :key="item">
+
+                <v-virtual-scroll :bench="benched" :items="Videos" max-height="400" item-height="90">
+                    <template v-slot:default="{ item }">
+                        <v-list-item :key="item">
+                            <v-list-item-action>
+                                <VideoPopup :Main="Main" :Cat="Cat" :Video="item" />
+                            </v-list-item-action>
+                        </v-list-item>
+                    </template>
+                </v-virtual-scroll>
+
+
+                    <!--<v-row v-for="item in Videos" :key="item">
                         <v-col>
                             <VideoPopup :Main="Main" :Cat="Cat" :Video="item" />
                         </v-col>
-                    </v-row>
+                    </v-row>-->
                 </v-expansion-panel-content>
             </v-expansion-panel>
         </v-expansion-panels>
@@ -29,6 +41,7 @@ export default {
     data() {
         return {
             Videos: [],
+            benched: 5,
             Open: null
         }
     },
@@ -49,6 +62,7 @@ export default {
 </script>
 
 <style scoped>
+
 .v-expansion-panel::before {
    box-shadow: none !important;
 }
@@ -57,7 +71,7 @@ export default {
     font-size: 56pt !important;
     font-weight: bold;
     line-height: 60pt;
-    margin-left: 58px;
+    padding-left: 58px;
 }
 .box {
     margin: auto

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import idleTimeout from "idle-Timeout";
 import collab from "/components/collab";
 import techcollegeLogo from "/components/TechcollegeLogo.vue";
 
@@ -28,7 +29,8 @@ export default {
     data(){
         return {
             cats: [],
-            maxRows: 3
+            maxRows: 3,
+            idleTime: 0
         }
     },
     
@@ -47,6 +49,18 @@ export default {
         }
         this.cats.push(work);
         console.log("cats", this.cats);
+
+
+        const instance = idleTimeout(
+            () => {
+                console.log("Nothing is happening");
+                this.$router.push("/");
+            },
+            {
+                element: document,
+                timeout: 1000 * 60 * 60,
+                loop: false
+            });
     },
 
     methods: {

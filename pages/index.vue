@@ -12,8 +12,8 @@
       </v-col>
       <v-col>
         <div class="center-screen">
-          <h1>F I F S</h1>
-          <p>Faglig Information & Forklarings System</p>
+          <span class="fifsHeader">F I F S</span>
+          <span class="fifsSubtext">Faglig Information & Forklarings System</span>
         </div>
       </v-col>
       <v-col>
@@ -56,6 +56,7 @@ export default {
   background-color: #FFFFFF;
   text-transform: none;
   font-weight: bold;
+  letter-spacing: 0.5px;
 }
 .btn_right {
   float: right;
@@ -73,16 +74,17 @@ export default {
   text-align: center;
   width: 50vw;
   margin: auto;
-  margin-top: 30vh;
-  font-size: 1.5rem
+  margin-top: 32vh;
 }
 
-h1 {
-  font-size: 180pt;
+.fifsHeader {
+  font-size: 220pt;
+  font-weight: bold;
+  line-height: 1;
 }
 
-p {
-  font-size: 25pt;
+.fifsSubtext {
+  font-size: 30pt
 }
 
 </style>

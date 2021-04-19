@@ -3,15 +3,15 @@
         <span class="btn" @click="btnClick">{{'- ' + VideoName}}</span>
 
         <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition" >
-            <v-card class="card">
-                <v-toolbar dark color="primary" height="140px">
-                    <v-btn class="videoBtn" icon dark @click="dialog = false">
-                        <v-icon x-large>mdi-close</v-icon>
+            <v-card dark class="card">
+                <v-toolbar dark color="darken" height="140px">
+                    <v-btn class="videoBtn" icon @click="dialog = false">
+                        <v-icon x-large color="white">mdi-close-circle-outline</v-icon>
                     </v-btn>
                     <v-toolbar-title style="font-size: 24pt">{{VideoName}}</v-toolbar-title>
                 </v-toolbar>
 
-                <video width="100%" height="1200" ref="mainvideo" autoplay>
+                <video width="100%" height="1200" ref="mainvideo" controls autoplay>
                     <source :src="VideoLink" type="video/mp4">
                 </video>
             </v-card>
@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .card {
-    background-color: black;
+    background-color: black !important;
 }
 
 .btn {

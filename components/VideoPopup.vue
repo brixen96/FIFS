@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span class="btn" @click="btnClick">{{'- ' + VideoName}}</span>
+        <span class="btn" @click="dialog = true">{{'- ' + VideoName}}</span>
 
         <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition" >
             <v-card dark class="card">
@@ -34,16 +34,7 @@ export default {
     created() {
         this.VideoName = this.Video.split(".")[0];
         console.log(this.VideoLink);
-    },
-
-    methods: {
-        btnClick: function() {
-            this.dialog = true;
-            console.log("Mounting time");
-            //this.$refs.mainvideo.play()
-        }
     }
-
 }
 </script>
 

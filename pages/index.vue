@@ -57,6 +57,7 @@ export default {
   text-transform: none;
   font-weight: bold;
   letter-spacing: 0.5px;
+  box-shadow: none !important;
 }
 .btn_right {
   float: right;

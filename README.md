@@ -1,4 +1,4 @@
-# FIFS
+# FIFS made by Emil Reinewald Brix Nielsen Tobias Steffensen
 
 ## Build Setup
 

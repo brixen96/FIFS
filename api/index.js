@@ -3,7 +3,7 @@ const app = express();
 const fs = require("fs");
 const path = require('path');
 
-const rootDir = "./TestFolder";
+const rootDir = "./static/Media";
 
 // Get main dirs for buttons on homepage
 app.get("/maincat", function(req, res) {

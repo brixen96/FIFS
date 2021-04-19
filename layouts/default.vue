@@ -2,7 +2,10 @@
   <v-app>
     <v-main>
       <v-container fluid>
-        <nuxt />
+        <nuxt class="nuxt" />
+        <v-row class="footer">
+            <techcollegeLogo class="TCLogo"></techcollegeLogo>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -39,5 +42,27 @@ export default {
 <style scoped>
 * {
     background-color: rgb(239,239,239);
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  padding: 0;
+}
+
+.nuxt {
+  height: 91%;
+  padding: 0;
+}
+
+.TCLogo {
+
+  margin: auto;
+  width: 10vw;
+  height: auto;
 }
 </style>

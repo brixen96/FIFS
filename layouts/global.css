@@ -11,3 +11,13 @@
 a { 
     text-decoration: none;
 }
+
+span{
+    color: #333333 !important;
+    font-family: "OpenSans" !important;
+}
+
+/* Remove arrow from collabs */
+.v-expansion-panel-header__icon {
+    display: none !important;
+}

@@ -1,30 +1,35 @@
 <template>
   <div>
-    <v-row class="row">
-      <div v-for="index in mains.length" :key="index">
-        <Nuxt-Link :to="'/main/' + mains[index - 1]">
-          <v-btn v-if="index % 2 == 1" class="btn_top">{{mains[index - 1]}}</v-btn>
-        </Nuxt-Link>
-      </div>
-    </v-row>
-    <v-row class="row">
+    <v-row>
+      <v-col>
+        <div class="BTNContainer">
+          <v-row v-for="index in mains.length" :key="index">
+            <Nuxt-Link :to="'/main/' + mains[index - 1]" v-if="index % 2 == 1">
+              <v-btn  class="btn">{{mains[index - 1]}}</v-btn>
+            </Nuxt-Link>
+          </v-row>
+        </div>
+      </v-col>
+      <v-col>
         <div class="center-screen">
-          <h1 style="font-size: 10rem">F I F S</h1>
+          <h1>F I F S</h1>
           <p>Faglig Information & Forklarings System</p>
         </div>
-    </v-row>
-    <v-row class="row">
-      <div v-for="index in mains.length" :key="index">
-        <Nuxt-Link :to="'/main/' + mains[index - 1]">
-          <v-btn v-if="index % 2 == 0" class="btn_bottom">{{mains[index - 1]}}</v-btn>
-        </Nuxt-Link>
-      </div>
+      </v-col>
+      <v-col>
+        <div class="BTNContainer btn_right">
+          <v-row v-for="index in mains.length" :key="index">
+            <Nuxt-Link :to="'/main/' + mains[index - 1]" v-if="index % 2 == 0">
+              <v-btn  class="btn">{{mains[index - 1]}}</v-btn>
+            </Nuxt-Link>
+          </v-row>
+        </div>
+      </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   /*
     asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {},
@@ -43,25 +48,23 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-.btn_top {
+<style scoped>
+.btn {
   height: 22vh !important;
-  width: 20vw !important;
-  font-size: 2rem;
-  margin-top: 1.5vh;
+  width: 24vw !important;
+  font-size: 56pt !important;
   background-color: #FFFFFF;
   text-transform: none;
-  margin-right: 1vw;
+  font-weight: bold;
 }
-.btn_bottom {
-  height: 22vh !important;
-  width: 20vw !important;
-  font-size: 2rem;
-  bottom: -30%;
-  background-color: #FFFFFF;
-  text-transform: none;
-  margin-right: 1vw;
+.btn_right {
+  float: right;
 }
+
+.BTNContainer {
+  margin-top: 35vh;
+}
+
 .center-screen {
   display: flex;
   flex-direction: column;
@@ -70,12 +73,16 @@ export default {
   text-align: center;
   width: 50vw;
   margin: auto;
+  margin-top: 30vh;
   font-size: 1.5rem
 }
-.row {
-  height: 33.3vh !important;
-  justify-content: center;
+
+h1 {
+  font-size: 180pt;
 }
 
+p {
+  font-size: 25pt;
+}
 
 </style>

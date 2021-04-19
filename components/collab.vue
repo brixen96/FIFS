@@ -1,37 +1,66 @@
 <template>
     <div>
-        <v-expansion-panels>
-            <v-expansion-panel>
-            <v-expansion-panel-header>
-                <b class="title">{{Cat}}</b>
+        <v-expansion-panels class="box" v-model="Open" expandable>
+            <v-expansion-panel @click="click" v-model="Open" expand>
+            <v-expansion-panel-header class="title">
+                <span >{{Cat}}</span>
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
-                <v-row v-for="item in Videos" :key="item">
-                    <v-col>
-                        <v-btn plain>- {{item}}</v-btn>
-                    </v-col>
-                </v-row>
-            </v-expansion-panel-content>
-        </v-expansion-panel>
-    </v-expansion-panels>
-
-    </div>
+                <v-expansion-panel-content>
+                    <v-row v-for="item in Videos" :key="item">
+                        <v-col>
+                            <VideoPopup :Main="Main" :Cat="Cat" :Video="item" />
+                        </v-col>
+                    </v-row>
+                </v-expansion-panel-content>
+            </v-expansion-panel>
+        </v-expansion-panels>
+    </div> 
 </template>
 
 <script>
+import VideoPopup from "/components/VideoPopup.vue"
 export default {
     props: ["Cat", "Main"],
+
+    components: {
+        VideoPopup
+    },
+
     data() {
         return {
-            Videos: []
+            Videos: [],
+            Open: null
         }
     },
+
     async created () {
-        var videos = await this.axiosGet("videos/" + this.Main + "/" + this.Cat)
+        this.Videos = await this.axiosGet("videos/" + this.Main + "/" + this.Cat)
+    },
+
+    methods: {
+        close: function() {
+            this.Open = null;
+        },
+        click: function() {
+            this.$emit("click");
+        },
     }
 }
 </script>
 
 <style scoped>
+.v-expansion-panel::before {
+   box-shadow: none !important;
+}
+.title {
+    min-height: 132px;
+    font-size: 56pt !important;
+    font-weight: bold;
+    line-height: 60pt;
+    margin-left: 58px;
+}
+.box {
+    margin: auto
+}
 
 </style>

@@ -31,10 +31,6 @@
 
 <script>
 export default {
-  /*
-    asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {},
-  */
-
   data(){
     return {
       mains: []
@@ -44,7 +40,6 @@ export default {
   async created() {
     this.mains = await this.axiosGet("maincat");
   },
-  
 }
 </script>
 

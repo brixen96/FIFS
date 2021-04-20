@@ -33,4 +33,4 @@ $ npm run start
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-Made by Emil Reinewald Brix Nielsen Tobias Steffensen
+Made by Emil Reinewald Brix Nielsen & Tobias Steffensen

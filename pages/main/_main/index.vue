@@ -50,7 +50,7 @@ export default {
         this.cats.push(work);
         console.log("cats", this.cats);
 
-
+        // Go back to homepage if user is ilde for 1 hour
         const instance = idleTimeout(
             () => {
                 console.log("Nothing is happening");

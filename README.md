@@ -1,21 +1,21 @@
 # FIFS
 
 ## Add media
-Go to ~/static/Media
+Go to /static/Media
 
 Create a folder for the main catagory. 
-e.g. ~/static/Media/Smed
+e.g. /static/Media/Smed
 
 In that folder create a catagory folder. 
-e.g. ~/static/Media/Smed/Skruer
+e.g. /static/Media/Smed/Skruer
 
 And in that folder you can move your video to.
-e.g. ~/static/Media/Smed/Skruer/skrue1.mp4
+e.g. /static/Media/Smed/Skruer/skrue1.mp4
 
 Frontend updates folders and files automatically.
 
 ## Quick start
-~/run.bat
+/run.bat
 
 ## Build Setup
 

@@ -66,7 +66,8 @@ export default {
     padding-left: 58px;
 }
 .box {
-    margin: auto
+    margin: auto;
+    max-width: 840px
 }
 
 </style>

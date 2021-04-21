@@ -51,16 +51,16 @@ export default {
         console.log("cats", this.cats);
 
         // Go back to homepage if user is ilde for 1 hour
-        const instance = idleTimeout(
-            () => {
-                console.log("Nothing is happening");
-                this.$router.push("/");
-            },
-            {
-                element: document,
-                timeout: 1000 * 60 * 60,
-                loop: false
-            });
+        //const instance = idleTimeout(
+        //    () => {
+        //        console.log("Nothing is happening");
+        //        this.$router.push("/");
+        //    },
+        //    {
+        //        element: this,
+        //        timeout: 1000 * 60 * 60,
+        //        loop: false
+        //    });
     },
 
     methods: {

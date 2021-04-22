@@ -19,17 +19,24 @@
 
 <script>
 export default {
-    props: ["Cat", "Main", "Video"],
+    props: ["Cat", "Main", "Video", "Subcat"],
 
     data() {
         return {
             dialog: false,
             VideoName: "",
-            VideoLink: "/Media/" + this.Main + "/" + this.Cat + "/" + this.Video
+            VideoLink: ""
         }
     },
 
     created() {
+        if(this.Subcat) {
+            this.VideoLink = "/Media/" + this.Main + "/" + this.Cat + "/" + this.Subcat + "/" + this.Video;
+        }
+        else {
+
+            this.VideoLink = "/Media/" + this.Main + "/" + this.Cat + "/" + this.Video;
+        }
         this.VideoName = this.Video.split(".")[0];
 
         //this.$refs['mainvideo_' + this.VideoLink].play();

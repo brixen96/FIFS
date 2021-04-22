@@ -50,17 +50,16 @@ export default {
         this.cats.push(work);
         console.log("cats", this.cats);
 
-        // Go back to homepage if user is ilde for 1 hour
-        //const instance = idleTimeout(
-        //    () => {
-        //        console.log("Nothing is happening");
-        //        this.$router.push("/");
-        //    },
-        //    {
-        //        element: this,
-        //        timeout: 1000 * 60 * 60,
-        //        loop: false
-        //    });
+        // Timeout dosent work when running serverside 
+        if(process.client) {
+            var instance = idleTimeout(() => {
+                console.log("Nothing is happening");
+                this.$router.push("/");
+            });
+    
+                // Go back to homepage if user is ilde for 1 hour
+            instance.timeout = 1000 * 60 * 60;
+        }
     },
 
     methods: {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="parrent">
         <span class="btn" @click="open">{{'- ' + VideoName}}</span>
 
         <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition" >
@@ -67,11 +67,18 @@ export default {
 }
 
 .btn {
-    font-size: 33pt !important;
     margin-bottom: 30px;
     margin-top: 30px;
     width: 100%;
     margin-left: 56px;
+}
+
+.parrent {
+    font-size: 33pt !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important; 
+    white-space: nowrap !important;
+    width: 100%;
 }
 
 </style>

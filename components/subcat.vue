@@ -5,12 +5,11 @@
                 <span >{{Subcat}}</span>
             </v-expansion-panel-header>
                 <v-expansion-panel-content>
-                    <v-virtual-scroll :bench="benched" :items="Videos" max-height="700" item-height="90">
+                    <v-virtual-scroll :bench="benched" :items="Videos" max-height="700" item-height="100">
                         <template v-slot:default="{ item }">
                             <v-list-item :key="item">
                                 <v-list-item-action>
                                     <VideoPopup :Main="Main" :Cat="Cat" :Video="item" :Subcat="Subcat"/>
-                                    
                                 </v-list-item-action>
                             </v-list-item>
                         </template>

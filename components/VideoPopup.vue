@@ -11,7 +11,8 @@
                     <v-toolbar-title style="font-size: 24pt">{{VideoName}}</v-toolbar-title>
                 </v-toolbar>
 
-                <video width="100%" height="1200" :ref="'mainvideo_' + VideoLink" :src="VideoLink" controls autoplay></video>
+                <video v-if="!isPDF" width="100%" height="1200" :ref="'mainvideo_' + VideoLink" :src="VideoLink" controls autoplay></video>
+		<embed v-else :src="VideoLink" style="height: 84vh; width: 100%"/>
             </v-card>
         </v-dialog>
     </div>
@@ -25,19 +26,28 @@ export default {
         return {
             dialog: false,
             VideoName: "",
-            VideoLink: ""
+            VideoLink: "",
+	    VideoNameExtension: '',
+	    isPDF: false,
         }
     },
 
     created() {
-        if(this.Subcat) {
-            this.VideoLink = "/Media/" + this.Main + "/" + this.Cat + "/" + this.Subcat + "/" + this.Video;
+	    
+	    if(this.Subcat) {
+		    this.VideoLink = "/Media/" + this.Main + "/" + this.Cat + "/" + this.Subcat + "/" + this.Video;
+		    console.log(this.VideoLink)
         }
         else {
 
             this.VideoLink = "/Media/" + this.Main + "/" + this.Cat + "/" + this.Video;
         }
         this.VideoName = this.Video.split(".")[0];
+        this.VideoNameExtension = this.Video.split(".")[1];
+
+	if(this.VideoNameExtension == 'pdf') {
+		this.isPDF = true;
+	}
 
         //this.$refs['mainvideo_' + this.VideoLink].play();
     },
@@ -46,7 +56,9 @@ export default {
         close: function() {
             this.dialog = false;
             console.log("Stopping video");
-            this.$refs['mainvideo_' + this.VideoLink].pause();
+	    if(!this.isPDF) {
+		    this.$refs['mainvideo_' + this.VideoLink].pause();
+	    }
         },
         open: function() {
             this.dialog = true;

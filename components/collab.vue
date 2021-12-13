@@ -11,7 +11,7 @@
                     <subcat  v-for="item in Categorys" :key="item" :Main="Main" :Cat="Cat" :Subcat="item" />
                 </v-expansion-panels>
 
-                    <v-virtual-scroll :bench="benched" :items="Videos" max-height="900" :item-height="itemHeight">
+                    <v-virtual-scroll :bench="benched" :items="Videos" :item-height="itemHeight">
                         <template v-slot:default="{ item }">
                             <v-list-item :key="item">
                                 <v-list-item-action>
